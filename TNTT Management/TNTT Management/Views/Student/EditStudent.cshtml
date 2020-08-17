@@ -1,0 +1,645 @@
+﻿
+@{
+    ViewBag.Title = "EditStudent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-panel">
+    <nav class="navbar navbar-transparent navbar-absolute">
+        <div class="container-fluid">
+            <div class="navbar-minimize">
+                <button id="minimizeSidebar" class="btn btn-round btn-white btn-fill btn-just-icon">
+                    <i class="material-icons visible-on-sidebar-regular">more_vert</i>
+                    <i class="material-icons visible-on-sidebar-mini">view_list</i>
+                </button>
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    Quản lý thiếu nhi
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            <button class="btn btn-danger"
+                                    onclick="demo.showSwal('warning-message-and-confirmation')">
+                                <!-- Link on demo.js: warning-message-and-confirmation -->
+                                <i class="material-icons">exit_to_app</i>Đăng xuất
+                            </button>
+                        </a>
+                    </li>
+                    <li class="separator hidden-lg hidden-md"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="nav-center">
+                        <ul class="nav nav-pills nav-pills-info nav-pills-icons" role="tablist">
+                            <!--
+                                color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+                            -->
+                            <!-- Tab Header -->
+                            <li class="active">
+                                <a href="#personal" role="tab" data-toggle="tab">
+                                    <i class="material-icons">person</i> Thông tin cá nhân
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#assign" role="tab" data-toggle="tab">
+                                    <i class="material-icons">assignment</i> Thông tin Bí tích
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#parents" role="tab" data-toggle="tab">
+                                    <i class="material-icons">supervisor_account</i> Thông tin Phụ huynh
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#class" role="tab" data-toggle="tab">
+                                    <i class="material-icons">class</i> Thông tin Lớp học
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#login" role="tab" data-toggle="tab">
+                                    <i class="material-icons">lock</i> Thông tin Đăng nhập
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <!-- Thông tin cá nhân -->
+                        <div class="tab-pane active" id="personal">
+                            <div class="card">
+                                <div class="card-header card-header-icon" data-background-color="blue">
+                                    <i class="material-icons">person</i>
+                                </div>
+                                <div class="card-content">
+                                    <h4 class="card-title">
+                                        Thông tin cá nhân
+                                    </h4>
+                                    <form>
+                                        <!-- Normal Information -->
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Tên thánh *</label>
+                                                    <input type="text" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Họ và tên lót *</label>
+                                                    <input type="text" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Tên *</label>
+                                                    <input type="text" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Email</label>
+                                                    <input type="email" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Điện thoại liên lạc</label>
+                                                    <input type="number" class="form-control" minLength="10">
+                                                </div>
+                                            </div>
+                                            <!-- Toggle Show/Hide material-dashboard.js: line 131 -->
+                                            <!-- Other Information -->
+                                            <div class="col-md-12 my-3">
+                                                <hr>
+                                                <a class="btn btn-primary">
+                                                    <i class="material-icons">contacts</i> Thông tin
+                                                    thêm
+                                                </a>
+                                                <div class="row my-2 ml-4">
+                                                    <label class="col-sm-2 label-on-left">Giới tính</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="radio checkbox-inline">
+                                                            <label>
+                                                                <input type="radio" name="optionsRadios"
+                                                                       checked="true">Nam
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio checkbox-inline">
+                                                            <label>
+                                                                <input type="radio" name="optionsRadios">Nữ
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label">Địa chỉ</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label">Ghi chú</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group label-floating">
+                                                            <label class="label-control validateday"
+                                                                   id="validateday">
+                                                                Ngày
+                                                                sinh
+                                                            </label>
+                                                            <input type="text"
+                                                                   class="form-control today birthday"
+                                                                   placeholder="Chọn ngày sinh" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group label-floating">
+                                                            <label class="label-control validateday">
+                                                                Ngày bổn
+                                                                mạng
+                                                            </label>
+                                                            <input type="text" class="form-control today"
+                                                                   placeholder="Chọn ngày bổn mạng" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label">Thuộc giáo xứ</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label">Giáo khu</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label">Giáo phận</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Button -->
+                                        <div class="pull-right">
+                                            <button type="submit" class="btn btn-success btn-fill">
+                                                Lưu thông
+                                                tin
+                                            </button>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Thông tin bí tích -->
+                        <div class="tab-pane" id="assign">
+                            <div class="card">
+                                <div class="card-header card-header-icon" data-background-color="blue">
+                                    <i class="material-icons">assignment</i>
+                                </div>
+                                <div class="card-content">
+                                    <h4 class="card-title">
+                                        Thông tin bí tích
+                                    </h4>
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Nơi rửa tội</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Nơi rước lễ</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Nơi thêm sức</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label class="label-control validateday"
+                                                           id="validateday">
+                                                        Ngày rửa
+                                                        tội
+                                                    </label>
+                                                    <input type="text" class="form-control datepicker"
+                                                           placeholder="Chọn Ngày rửa tội" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label class="label-control validateday">
+                                                        Ngày rước
+                                                        lễ
+                                                    </label>
+                                                    <input type="text" class="form-control datepicker"
+                                                           placeholder="Chọn Ngày rước lễ" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label class="label-control validateday">
+                                                        Ngày thêm
+                                                        sức
+                                                    </label>
+                                                    <input type="text" class="form-control datepicker"
+                                                           placeholder="Chọn Ngày tiếp sức" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Button -->
+                                        <br>
+                                        <div class="pull-right">
+                                            <button type="submit" class="btn btn-success btn-fill">
+                                                Lưu thông
+                                                tin
+                                            </button>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Thông tin phụ huynh -->
+                        <div class="tab-pane" id="parents">
+                            <div class="card">
+                                <div class="card-header card-header-icon" data-background-color="blue">
+                                    <i class="material-icons">supervisor_account</i>
+                                </div>
+                                <div class="card-content">
+                                    <h4 class="card-title">
+                                        Thông tin phụ huynh
+                                    </h4>
+                                    <form>
+                                        <!-- Normal Information -->
+                                        <div class="row">
+                                            <div class="col-md-6 info-parent">
+                                                <!-- Thông tin cha -->
+                                                <div class="col-md-12">
+                                                    <a class="btn btn-primary">
+                                                        <i class="material-icons">person_outline</i> Thông tin
+                                                        cha
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group label-floating">
+                                                        <label class="control-label">Tên thánh</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group label-floating">
+                                                        <label class="control-label">Họ và tên lót</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group label-floating">
+                                                        <label class="control-label">Tên</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group label-floating">
+                                                        <label class="control-label">Số điện thoại</label>
+                                                        <input type="number" class="form-control"
+                                                               minLength="10">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 info-parent">
+                                                <!-- Thông tin mẹ -->
+                                                <div class="col-md-12">
+                                                    <a class="btn btn-rose">
+                                                        <i class="material-icons">person_outline</i> Thông tin
+                                                        mẹ
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group label-floating">
+                                                        <label class="control-label">Tên thánh</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group label-floating">
+                                                        <label class="control-label">Họ và tên lót</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group label-floating">
+                                                        <label class="control-label">Tên</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group label-floating">
+                                                        <label class="control-label">Số điện thoại</label>
+                                                        <input type="number" class="form-control"
+                                                               minLength="10">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Button -->
+                                        <br>
+                                        <div class="pull-right">
+                                            <button type="submit" class="btn btn-success btn-fill">
+                                                Lưu thông
+                                                tin
+                                            </button>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Thông tin lớp -->
+                        <div class="tab-pane" id="class">
+                            <div class="card">
+                                <div class="card-header card-header-icon" data-background-color="blue">
+                                    <i class="material-icons">class</i>
+                                </div>
+                                <div class="card-content">
+                                    <h4 class="card-title">
+                                        Thông tin lớp học
+                                    </h4>
+                                    <div class="col-md-12">
+                                        <div class="col-md-2 dropdown-label">
+                                            <p>Thuộc ngành:</p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class="selectpicker" data-style="btn btn-primary btn-round"
+                                                    title="Chọn ngành">
+                                                <option disabled selected>Chọn ngành</option>
+                                                <option value="2">Ngành 1</option>
+                                                <option value="3">Ngành 2</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2 dropdown-label">
+                                            <p>Thuộc khối:</p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class="selectpicker" data-style="btn btn-primary btn-round"
+                                                    title="Chọn khối">
+                                                <option disabled selected>Chọn khối</option>
+                                                <option value="2">Khối 1</option>
+                                                <option value="3">Khối 2</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2 dropdown-label">
+                                            <p>Học lớp:</p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class="selectpicker" data-style="btn btn-primary btn-round"
+                                                    title="Chọn lớp">
+                                                <option disabled selected>Chọn lớp</option>
+                                                <option value="2">Lớp 1</option>
+                                                <option value="3">Lớp 2</option>
+                                            </select>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <!-- Button -->
+                                    <div class="pull-right">
+                                        <button type="submit" class="btn btn-success btn-fill">
+                                            Lưu thông
+                                            tin
+                                        </button>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Huynh trưởng -->
+                            <div class="card">
+                                <div class="card-header card-header-icon" data-background-color="blue">
+                                    <i class="material-icons">account_circle</i>
+                                </div>
+                                <div class="card-content">
+                                    <h4 class="card-title">
+                                        Huynh trưởng / GLV phụ trách
+                                    </h4>
+                                    <div class="material-datatables">
+                                        <table class="datatables table table-striped table-no-bordered table-hover responsive"
+                                               cellspacing="0" width="100%" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>STT</th>
+                                                    <th>Tên thánh</th>
+                                                    <th>Họ và tên</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th>Email</th>
+                                                    <th>Chức vụ</th>
+                                                    <th>Ghi chú</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>System Architect</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>0000000000</td>
+                                                    <td>a@abc.com</td>
+                                                    <td>Chức vụ 1</td>
+                                                    <td>Caesar Vance</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>1111111111</td>
+                                                    <td>ab@abc.com</td>
+                                                    <td>Chức vụ 2</td>
+                                                    <td>Cedric Kelly</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>2222222222</td>
+                                                    <td>abc@abc.com</td>
+                                                    <td>Chức vụ 3</td>
+                                                    <td>Brenden Wagner</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Sales Assistant</td>
+                                                    <td>San Francisco</td>
+                                                    <td>3333333333</td>
+                                                    <td>abcd@abc.com</td>
+                                                    <td>Chức vụ 1</td>
+                                                    <td>Bradley Greer</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>Tokyo</td>
+                                                    <td>4444444444</td>
+                                                    <td>abcde@abc.com</td>
+                                                    <td>Chức vụ 3</td>
+                                                    <td>Fiona Green</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Thông tin đăng nhập -->
+                        <div class="tab-pane" id="login">
+                            <div class="card">
+                                <div class="card-header card-header-icon" data-background-color="blue">
+                                    <i class="material-icons">lock</i>
+                                </div>
+                                <div class="card-content">
+                                    <h4 class="card-title">
+                                        Thông tin Đăng nhập
+                                    </h4>
+                                    <div class="col-md-12">
+                                        <div class="col-md-4">
+                                            <h6 class="label-right">Tên đăng nhập</h6>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" value="anhtpq" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-4">
+                                            <h6 class="label-right">Mật khẩu</h6>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="password" class="form-control" value="********"
+                                                   readonly>
+                                        </div>
+                                        <div class="col-md-4 issuepassword" style="margin-top: 5px;">
+                                            <!-- onclick="demo.showSwal('input-field')" -->
+                                            <a data-toggle="modal" data-target="#myModal">
+                                                <!-- Link on demo.js: input-field -->
+                                                <h6><i class="material-icons">autorenew</i> Đổi mật khẩu</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <div>
+                                                        <button type="button" aria-hidden="true" class="close"
+                                                                data-dismiss="modal">
+                                                            <i class="material-icons">clear</i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="" method="">
+                                                        <div class="card-header card-header-icon"
+                                                             data-background-color="blue">
+                                                            <i class="material-icons">contacts</i>
+                                                        </div>
+                                                        <div class="card-content">
+                                                            <h4 class="card-title">Đổi mật khẩu</h4>
+                                                            <br>
+                                                            <div class="form-group label-floating">
+                                                                <label class="control-label">
+                                                                    Mật khẩu mới *
+                                                                </label>
+                                                                <input class="form-control new_password2"
+                                                                       name="password" type="password"
+                                                                       required="true" />
+                                                            </div>
+                                                            <div class="form-group label-floating">
+                                                                <label class="control-label">
+                                                                    Xác nhận mật khẩu mới *
+                                                                </label>
+                                                                <input class="form-control confirm_password2"
+                                                                       name="password_confirmation" type="password"
+                                                                       required="true"
+                                                                       equalTo="#registerPassword" />
+                                                            </div>
+
+                                                            <!-- Button -->
+                                                            <div class="form-footer text-right">
+                                                                <div class="pull-right">
+                                                                    <button type="reset" class="btn btn-fill"
+                                                                            id="clear">
+                                                                        Đặt lại
+                                                                    </button>
+                                                                    <!-- material-dashboard.js: Confirm Issue Password line 324 -->
+                                                                    <button type="submit"
+                                                                            class="btn btn-success btn-fill confirm2">
+                                                                        Đổi
+                                                                        mật khẩu
+                                                                    </button>
+                                                                    <!-- Link on demo.js: success-message -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end col-md-12 -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <nav class="pull-left">
+                &copy;
+                <script>document.write(new Date().getFullYear())</script>
+                TNTT Vietnam
+            </nav>
+            <p class="copyright pull-right">
+                Được phát triển bởi QA System Development
+            </p>
+        </div>
+    </footer>
+</div>
+

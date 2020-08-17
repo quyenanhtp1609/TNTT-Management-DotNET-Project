@@ -1,0 +1,141 @@
+﻿
+@{
+    ViewBag.Title = "ListTeacher";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-panel">
+    <nav class="navbar navbar-transparent navbar-absolute">
+        <div class="container-fluid">
+            <div class="navbar-minimize">
+                <button id="minimizeSidebar" class="btn btn-round btn-white btn-fill btn-just-icon">
+                    <i class="material-icons visible-on-sidebar-regular">more_vert</i>
+                    <i class="material-icons visible-on-sidebar-mini">view_list</i>
+                </button>
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    Quản lý nhân sự
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            <button class="btn btn-danger"
+                                    onclick="demo.showSwal('warning-message-and-confirmation')">
+                                <i class="material-icons">exit_to_app</i>Đăng xuất
+                            </button>
+                        </a>
+                    </li>
+                    <li class="separator hidden-lg hidden-md"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-icon" data-background-color="blue">
+                            <i class="material-icons">list_alt</i>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Danh sách nhân sự</h4>
+                            <div class="toolbar">
+                                <!--        Here you can write extra buttons/actions for the toolbar              -->
+                            </div>
+                            <div class="material-datatables">
+                                <table id="datatables2"
+                                       class="table table-striped display responsive table-no-bordered table-hover nowrap"
+                                       style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Tên thánh</th>
+                                            <th>Họ và tên</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Ngành</th>
+                                            <th>Khối</th>
+                                            <th>Lớp</th>
+                                            <th>Chức danh</th>
+                                            <th class="disabled-sorting"></th>
+                                        </tr>
+                                    </thead>
+                                    <!-- Footer enable filter -->
+                                    <tfoot style="display: contents">
+                                        <tr>
+                                            <th class="table-hidden"></th>
+                                            <th class="table-hidden"></th>
+                                            <th class="table-hidden"></th>
+                                            <th class="table-hidden"></th>
+                                            <th>Ngành</th>
+                                            <th>Khối</th>
+                                            <th>Lớp</th>
+                                            <th>Chức danh</th>
+                                            <th class="disabled-sorting table-hidden"></th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        @foreach (var item in ViewBag.ListTeacher)
+                                        {
+                                            <tr>
+                                                <td>1</td>
+                                                <td>@item.holy_name</td>
+                                                <td><span>@item.first_name</span><span> </span><span>@item.last_name</span></td>
+                                                <td>@item.phone_number</td>
+                                                <td>Ngành 1</td>
+                                                <td>Khối 1</td>
+                                                <td>Lớp 1</td>
+                                                <td>Chức danh 1</td>
+                                                <td class="td-actions">
+                                                    <button type="button" rel="tooltip"
+                                                            class="btn btn-success btn-round">
+                                                        <a href="edit_teachers.html">
+                                                            <i class="material-icons">edit</i>
+                                                        </a>
+                                                    </button>
+                                                    <button type="button" rel="tooltip"
+                                                            class="btn btn-danger btn-round"
+                                                            onclick="demo.showSwal('warning-message-and-confirmation-6')">
+                                                        <!-- Link on demo.js: warning-message-and-confirmation-6 -->
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                        <!-- end content-->
+                    </div>
+                    <!--  end card  -->
+                </div>
+                <!-- end col-md-12 -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <nav class="pull-left">
+                &copy;
+                <script>document.write(new Date().getFullYear())</script>
+                TNTT Vietnam
+            </nav>
+            <p class="copyright pull-right">
+                Được phát triển bởi QA System Development
+            </p>
+        </div>
+    </footer>
+</div>
+
