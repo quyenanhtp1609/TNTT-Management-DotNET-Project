@@ -126,6 +126,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\ParishActions.cs" />
     <Compile Include="Actions\StudentActions.cs" />
     <Compile Include="Actions\TeacherActions.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

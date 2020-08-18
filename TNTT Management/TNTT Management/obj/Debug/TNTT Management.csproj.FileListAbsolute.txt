@@ -78,3 +78,83 @@ F:\QA System\TNTT Management\TNTT Management\bin\EntityFramework.dll
 F:\QA System\TNTT Management\TNTT Management\bin\EntityFramework.SqlServer.dll
 F:\QA System\TNTT Management\TNTT Management\bin\EntityFramework.xml
 F:\QA System\TNTT Management\TNTT Management\bin\EntityFramework.SqlServer.xml
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\TNTT Management.dll.config
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\TNTT Management.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\TNTT Management.pdb
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\csc.exe
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\csc.exe.config
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\csc.rsp
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\csi.exe
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\csi.exe.config
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\csi.rsp
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\Microsoft.Managed.Core.targets
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.AppContext.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Collections.Immutable.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Console.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.IO.Compression.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.IO.FileSystem.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.IO.Pipes.AccessControl.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.IO.Pipes.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Reflection.Metadata.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Security.AccessControl.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Security.Claims.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Security.Principal.Windows.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.ValueTuple.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Xml.XmlDocument.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Xml.XPath.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\vbc.exe
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\vbc.exe.config
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\vbc.rsp
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\VBCSCompiler.exe
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\roslyn\VBCSCompiler.exe.config
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\Antlr3.Runtime.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\EntityFramework.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\EntityFramework.SqlServer.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\Microsoft.Web.Infrastructure.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\Newtonsoft.Json.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.Helpers.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.Mvc.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.Optimization.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.Razor.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.WebPages.Deployment.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.WebPages.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.WebPages.Razor.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\WebGrease.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\EntityFramework.xml
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\EntityFramework.SqlServer.xml
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.Helpers.xml
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.Mvc.xml
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.Optimization.xml
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.Razor.xml
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.WebPages.xml
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.WebPages.Deployment.xml
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\System.Web.WebPages.Razor.xml
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\Newtonsoft.Json.xml
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\Antlr3.Runtime.pdb
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\obj\Debug\TNTT Management.csprojAssemblyReference.cache
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\obj\Debug\TNTT Management.csproj.CoreCompileInputs.cache
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\obj\Debug\TNTT Management.csproj.CopyComplete
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\obj\Debug\TNTT Management.dll
+F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\obj\Debug\TNTT Management.pdb

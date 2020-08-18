@@ -12,7 +12,7 @@ namespace TNTT_Management.Actions
         {
             using (var db = new ChurchModel())
             {
-                return db.USERLOGINs.ToList();
+                return db.USERLOGINs.Where(m => m.isDeleted == false).ToList();
             }
         }
     }
