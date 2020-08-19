@@ -98,16 +98,47 @@
                                                 <td class="td-actions">
                                                     <button type="button" rel="tooltip"
                                                             class="btn btn-success btn-round">
-                                                        <a href="edit_teachers.html">
+                                                        <a href="/Teacher/EditTeacher/@item.userid">
                                                             <i class="material-icons">edit</i>
                                                         </a>
                                                     </button>
-                                                    <button type="button" rel="tooltip"
-                                                            class="btn btn-danger btn-round"
-                                                            onclick="demo.showSwal('warning-message-and-confirmation-6')">
-                                                        <!-- Link on demo.js: warning-message-and-confirmation-6 -->
-                                                        <i class="material-icons">close</i>
-                                                    </button>
+                                      
+                                                        <button type="button" rel="tooltip"
+                                                                class="btn btn-danger btn-round" onclick="remove(@item.userid)">
+                                                            <!-- Link on demo.js: warning-message-and-confirmation-6 -->
+                                                            <i class="material-icons">close</i>
+                                                        </button>
+                                         
+                                                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                                                    <script type="text/javascript">
+                                                        function remove(id) {
+                                                            swal({
+                                                                title: "Xác nhận xoá?",
+                                                                text: "Nhấn OK nếu bạn muốn xoá, nhấn Cancel để hủy!",
+                                                                icon: "warning",
+                                                                cancelButtonClass: 'btn btn-danger',
+                                                                buttons: true,
+                                                                dangerMode: true,
+                                                            })
+                                                                .then((willDelete) => {
+                                                                    if (willDelete) {
+                                                                        removeitem(id)
+                                                                    }
+
+                                                                });
+
+                                                        }
+
+                                                        function removeitem(id) {
+                                                            $.ajax({
+                                                                url: '/Teacher/DeletedTeacher',
+                                                                data: { id: id }
+                                                            }).done(function () {
+                                                                location.reload();
+                                                            });
+                                                        }
+                                                    </script>
+                   
                                                 </td>
                                             </tr>
                                         }

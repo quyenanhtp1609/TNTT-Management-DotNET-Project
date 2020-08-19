@@ -801,11 +801,13 @@ demo = {
                 buttonsStyling: false,
                 className: "remove"
             }).catch(swal.noop)
-                .then(function () {
-                    table.on('click', '.remove', function (e) {
-                        $tr = $(this).closest('tr');
-                        table.row($tr).remove().draw();
-                        e.preventDefault();
+                .then(function ()
+                {
+                    $.ajax({
+                        url: '/Teacher/DeletedTeacher',
+                        data: { id: id }
+                    }).done(function () {
+                        alert('Removed');
                     });
                 })
         }
@@ -1031,6 +1033,8 @@ demo = {
         //       }).catch(swal.noop)
         // }
     },
+
+
 
     initVectorMap: function () {
         var mapData = {
@@ -1506,6 +1510,5 @@ demo = {
             });
         }
     }
-
 
 }

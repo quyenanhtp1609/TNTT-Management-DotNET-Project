@@ -1,4 +1,4 @@
-﻿
+﻿@model TNTT_Management.Models.USER_PARISH_ROLE
 @{
     ViewBag.Title = "EditTeacher";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -83,37 +83,38 @@
                                     <h4 class="card-title">
                                         Thông tin cá nhân
                                     </h4>
-                                    <form>
+                                    <form action="/Teacher/EditTeacherInfo" method="post">
                                         <!-- Normal Information -->
+                                        <input type="hidden" name="id" value="@ViewBag.StudentByID.userid" />
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Tên thánh *</label>
-                                                    <input type="text" class="form-control" required>
+                                                    <input type="text" name="holy_name" value="@ViewBag.StudentByID.holy_name" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Họ và tên lót *</label>
-                                                    <input type="text" class="form-control" required>
+                                                    <input type="text" name="first_name" value="@ViewBag.StudentByID.first_name" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Tên *</label>
-                                                    <input type="text" class="form-control" required>
+                                                    <input type="text" name="last_name" value="@ViewBag.StudentByID.last_name" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Email</label>
-                                                    <input type="email" class="form-control">
+                                                    <input type="email" value="@ViewBag.StudentByID.email" name="email" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Điện thoại liên lạc</label>
-                                                    <input type="number" class="form-control" minLength="10">
+                                                    <input type="text" value="@ViewBag.StudentByID.phone_number" name="phone_number" class="form-control" minLength="10">
                                                 </div>
                                             </div>
                                             <!-- Toggle Show/Hide material-dashboard.js: line 131 -->
@@ -126,25 +127,45 @@
                                                 </a>
                                                 <div class="row my-2 ml-4">
                                                     <label class="col-sm-2 label-on-left">Giới tính</label>
-                                                    <div class="col-sm-10">
-                                                        <div class="radio checkbox-inline">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios"
-                                                                       checked="true">Nam
-                                                            </label>
+                                                    @if (@ViewBag.StudentByID.gender == "1")
+                                                    {
+                                                        <div class="col-sm-10">
+                                                            <div class="radio checkbox-inline">
+                                                                <label>
+                                                                    <input type="radio" value="1" name="gender"
+                                                                           checked="true">Nam
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio checkbox-inline">
+                                                                <label>
+                                                                    <input type="radio" value="0" name="gender">Nữ
+                                                                </label>
+                                                            </div>
                                                         </div>
-                                                        <div class="radio checkbox-inline">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios">Nữ
-                                                            </label>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="col-sm-10">
+                                                            <div class="radio checkbox-inline">
+                                                                <label>
+                                                                    <input type="radio" value="1" name="gender">Nam
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio checkbox-inline">
+                                                                <label>
+                                                                    <input type="radio" checked="true" value="0" name="gender">Nữ
+                                                                </label>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    }
+
                                                 </div>
+
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group label-floating">
                                                             <label class="control-label">Địa chỉ</label>
-                                                            <input type="text" class="form-control">
+                                                            <input type="text" value="@ViewBag.StudentByID.useradress" name="useradress" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -157,14 +178,24 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group label-floating">
-                                                            <label class="label-control validateday"
+                                                            <label class="label-control"
                                                                    id="validateday">
                                                                 Ngày
                                                                 sinh
                                                             </label>
-                                                            <input type="text"
-                                                                   class="form-control today birthday"
-                                                                   placeholder="Chọn ngày sinh" />
+                                                            @if (@ViewBag.StudentByID.birthday != null)
+                                                            {
+                                                                <input type="datetime" value="@ViewBag.StudentByID.birthday" name="birthday"
+                                                                       class="form-control"
+                                                                       placeholder="Chọn ngày sinh" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <input type="date" name="birthday"
+                                                                       class="form-control"
+                                                                       placeholder="Chọn ngày sinh" />
+                                                            }
+
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -173,8 +204,18 @@
                                                                 Ngày bổn
                                                                 mạng
                                                             </label>
-                                                            <input type="text" class="form-control today"
-                                                                   placeholder="Chọn ngày bổn mạng" />
+                                                            @if (@ViewBag.StudentByID.baptised_date != null)
+                                                            {
+                                                                <input type="datetime" value="@ViewBag.StudentByID.baptised_date" name="baptised_date"
+                                                                       class="form-control"
+                                                                       placeholder="Chọn ngày thành lập" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <input type="date" name="baptised_date"
+                                                                       class="form-control"
+                                                                       placeholder="Chọn ngày thành lập" />
+                                                            }
                                                         </div>
                                                     </div>
                                                 </div>
@@ -196,6 +237,12 @@
                                                             <label class="control-label">Giáo phận</label>
                                                             <input type="text" class="form-control">
                                                         </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        @Html.DropDownListFor(model => model.parishid, new SelectList(ViewBag.ListParishes, "local_parish_id", "parish_name"), "Chọn giáo xứ"
+                                           ,new { @class = "selectpicker"})
                                                     </div>
                                                 </div>
                                             </div>

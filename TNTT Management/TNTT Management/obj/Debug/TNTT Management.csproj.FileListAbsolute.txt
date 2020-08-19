@@ -69,7 +69,6 @@ F:\QA System\TNTT Management\TNTT Management\bin\System.Web.WebPages.Razor.xml
 F:\QA System\TNTT Management\TNTT Management\bin\Newtonsoft.Json.xml
 F:\QA System\TNTT Management\TNTT Management\bin\Antlr3.Runtime.pdb
 F:\QA System\TNTT Management\TNTT Management\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-F:\QA System\TNTT Management\TNTT Management\obj\Debug\TNTT Management.csprojAssemblyReference.cache
 F:\QA System\TNTT Management\TNTT Management\obj\Debug\TNTT Management.csproj.CoreCompileInputs.cache
 F:\QA System\TNTT Management\TNTT Management\obj\Debug\TNTT Management.csproj.CopyComplete
 F:\QA System\TNTT Management\TNTT Management\obj\Debug\TNTT Management.dll
@@ -158,3 +157,4 @@ F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\obj\
 F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\obj\Debug\TNTT Management.csproj.CopyComplete
 F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\obj\Debug\TNTT Management.dll
 F:\QA System\TNTT-Management-DotNET-Project\TNTT Management\TNTT Management\obj\Debug\TNTT Management.pdb
+F:\QA System\TNTT Management\TNTT Management\obj\Debug\TNTT Management.csprojAssemblyReference.cache

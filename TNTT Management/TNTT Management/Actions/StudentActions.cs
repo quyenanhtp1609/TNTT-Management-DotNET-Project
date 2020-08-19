@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using TNTT_Management.Models;
 
@@ -27,13 +28,15 @@ namespace TNTT_Management.Actions
         //    }
         //}
         public static void addStudent(string holy_name,string first_name,string last_name,string email
-            ,string phone_number,string gender,string useradress,string birthday,string baptised_date,int parish_id,
+            ,string phone_number,string gender,string useradress,DateTime? birthday,DateTime? baptised_date,int? parish_id,
             string father_name,string father_phone_number,string mother_name,string mother_phone_number)
         {
             using (var db = new ChurchModel())
             {
+        
                 int count_user = db.USERLOGINs.Count();
                 int count_user_parish = db.USER_PARISH_ROLE.Count();
+
                 USERLOGIN new_user = new USERLOGIN
                 {   userid = count_user + 1,
                     holy_name = holy_name,
@@ -43,8 +46,8 @@ namespace TNTT_Management.Actions
                     phone_number = phone_number,
                     gender = gender,
                     useradress = useradress,
-                    birthday = DateTime.ParseExact(birthday, "dd/MM/yyyy", null),
-                    baptised_date = DateTime.ParseExact(baptised_date, "dd/MM/yyyy", null),
+                    birthday = birthday,
+                    baptised_date = baptised_date,
                     father_name = father_name,
                     father_phone_number = father_phone_number,
                     mother_name = mother_name,
@@ -55,10 +58,20 @@ namespace TNTT_Management.Actions
                 };
                 db.USERLOGINs.Add(new_user);
                 db.SaveChanges();
-
-                db.USER_PARISH_ROLE.Add(new USER_PARISH_ROLE {USER_PARISH_ROLE_ID = count_user_parish + 1 ,roleid = 1,userid = new_user.userid,parishid = parish_id
-                    ,isDeleted = false});
-                db.SaveChanges();
+                Thread.Sleep(200);
+                if (parish_id != null)
+                {
+                    db.USER_PARISH_ROLE.Add(new USER_PARISH_ROLE
+                    {
+                        USER_PARISH_ROLE_ID = count_user_parish + 1,
+                        roleid = 1,
+                        userid = new_user.userid,
+                        parishid = parish_id
+                        ,
+                        isDeleted = false
+                    });
+                    db.SaveChanges();
+                }
                 db.Dispose();
             }
         }
@@ -73,11 +86,13 @@ namespace TNTT_Management.Actions
         }
 
         public static void editStudentinfo(int id,string holy_name,string first_name,string last_name,
-            string email,string phone_number,string gender,string useradress,DateTime birthday,
-            DateTime baptised_date,int parish_id)
+            string email,string phone_number,string gender,string useradress,DateTime? birthday,
+            DateTime? baptised_date,int? parish_id)
         {
             using (var db = new ChurchModel())
             {
+                int count_user_parish = db.USER_PARISH_ROLE.Count();
+
                 var userbyid = db.USERLOGINs.Where(m => m.userid == id && m.isDeleted == false).FirstOrDefault();
                 userbyid.holy_name = holy_name;
                 userbyid.first_name = first_name;
@@ -96,27 +111,36 @@ namespace TNTT_Management.Actions
                     user_parish_role.parishid = parish_id;
                     db.Entry(user_parish_role).State = EntityState.Modified;
                 }
-
+                else
+                {
+                    db.USER_PARISH_ROLE.Add(new USER_PARISH_ROLE
+                    {
+                        USER_PARISH_ROLE_ID = count_user_parish + 1,
+                        roleid = 1,
+                        userid = userbyid.userid,
+                        parishid = parish_id
+                     ,
+                        isDeleted = false
+                    });
+                }
                 db.SaveChanges();
                 db.Dispose();
             }
         }
 
-        public static void editStudentSacramental(int id,string baptised_place,string baptised_date
-            ,string first_communion_place, string first_communion_date,string confirmation_place, string confirmation_date)
+        public static void editStudentSacramental(int id,string baptised_place, DateTime? baptised_date
+            ,string first_communion_place, DateTime? first_communion_date,string confirmation_place, DateTime? confirmation_date)
         {
             using (var db = new ChurchModel())
             {
-                baptised_date = baptised_date.Split(' ')[0];
-                first_communion_date = first_communion_date.Split(' ')[0];
-                confirmation_date = confirmation_date.Split(' ')[0];
+
                 var userbyid = db.USERLOGINs.Where(m => m.userid == id && m.isDeleted == false).FirstOrDefault();
                 userbyid.baptised_place = baptised_place;
-                userbyid.baptised_date = DateTime.ParseExact(baptised_date, "dd/MM/yyyy", null);
+                userbyid.baptised_date = baptised_date;
                 userbyid.first_communion_place = first_communion_place;
-                userbyid.first_communion_date = DateTime.ParseExact(first_communion_date, "dd/MM/yyyy", null);
+                userbyid.first_communion_date = first_communion_date;
                 userbyid.comfirmation_place = confirmation_place;
-                userbyid.comfirmation_date = DateTime.ParseExact(confirmation_date, "dd/MM/yyyy", null);
+                userbyid.comfirmation_date = confirmation_date;
                 db.Entry(userbyid).State = EntityState.Modified;
                 db.SaveChanges();
                 db.Dispose();
