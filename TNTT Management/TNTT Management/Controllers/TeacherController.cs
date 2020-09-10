@@ -67,7 +67,15 @@ namespace TNTT_Management.Controllers
 
         public ActionResult ListTeacher()
         {
-            ViewBag.ListTeacher = TeacherActions.listTeachers();
+            if (Session["username"] != null)
+            {
+                ViewBag.ListTeacher = TeacherActions.listTeachers();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+          
             return View();
         }
 

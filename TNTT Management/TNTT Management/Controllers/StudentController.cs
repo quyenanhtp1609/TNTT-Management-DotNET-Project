@@ -88,7 +88,14 @@ namespace TNTT_Management.Controllers
 
         public ActionResult ListStudent()
         {
-            ViewBag.ListStudent = StudentActions.listStudents();
+            if (Session["username"] != null)
+            {
+                ViewBag.ListStudent = StudentActions.listStudents();
+            }
+            else
+            {
+                return RedirectToAction("Login","Account");
+            }
             return View();
         }
     }
