@@ -12,6 +12,8 @@ namespace TNTT_Management.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public USERLOGIN()
         {
+            CLASSes = new HashSet<CLASS>();
+            LEARNING_SUBJECT = new HashSet<LEARNING_SUBJECT>();
             USER_PARISH_ROLE = new HashSet<USER_PARISH_ROLE>();
             USER_RELATIONSHIP = new HashSet<USER_RELATIONSHIP>();
             USER_RELATIONSHIP1 = new HashSet<USER_RELATIONSHIP>();
@@ -94,6 +96,16 @@ namespace TNTT_Management.Models
         public string usercode { get; set; }
 
         public bool? isDeleted { get; set; }
+
+        public int? class_id { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CLASS> CLASSes { get; set; }
+
+        public virtual CLASS CLASS { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LEARNING_SUBJECT> LEARNING_SUBJECT { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USER_PARISH_ROLE> USER_PARISH_ROLE { get; set; }

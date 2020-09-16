@@ -11,6 +11,7 @@ namespace TNTT_Management.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LOCAL_PARISH()
         {
+            LEARNING_GROUP = new HashSet<LEARNING_GROUP>();
             USER_PARISH_ROLE = new HashSet<USER_PARISH_ROLE>();
         }
 
@@ -33,6 +34,9 @@ namespace TNTT_Management.Models
         public int? created_by { get; set; }
 
         public bool? isDeleted { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LEARNING_GROUP> LEARNING_GROUP { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USER_PARISH_ROLE> USER_PARISH_ROLE { get; set; }

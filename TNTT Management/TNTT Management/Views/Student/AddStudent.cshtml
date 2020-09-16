@@ -84,7 +84,7 @@
                                             <input type="text" name="phone_number" class="form-control" minLength="10">
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    @*<div class="col-md-12">
                                         <div class="col-md-2 dropdown-label">
                                             <p>Thuộc niên khoá:</p>
                                         </div>
@@ -107,9 +107,9 @@
                                                 <option value="3">Ngành 2</option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div>*@
                                     <div class="col-md-12">
-                                        <div class="col-md-2 dropdown-label">
+                                        @*<div class="col-md-2 dropdown-label">
                                             <p>Thuộc khối:</p>
                                         </div>
                                         <div class="col-md-3">
@@ -119,17 +119,15 @@
                                                 <option value="2">Khối 1</option>
                                                 <option value="3">Khối 2</option>
                                             </select>
-                                        </div>
+                                        </div>*@
                                         <div class="col-md-2 dropdown-label">
                                             <p>Học lớp:</p>
                                         </div>
                                         <div class="col-md-3">
-                                            <select class="selectpicker" data-style="btn btn-primary btn-round"
-                                                    title="Chọn lớp">
-                                                <option disabled selected>Chọn lớp</option>
-                                                <option value="2">Lớp 1</option>
-                                                <option value="3">Lớp 2</option>
-                                            </select>
+                                                @Html.DropDownList("class_id",
+                                              (IEnumerable<SelectListItem>)ViewBag.listClasses,
+                                              "Chọn lớp",new {@class= "selectpicker" })
+                                          
                                         </div>
                                     </div>
                                     <!-- Toggle Other Information -->
@@ -193,19 +191,19 @@
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Thuộc giáo xứ</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" name="parish" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Giáo khu</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" name="diocese" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Giáo phận</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" name="province" class="form-control">
                                                 </div>
                                             </div>
                                         </div>

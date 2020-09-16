@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "EditTeacher";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var stt = 1;
+    var stt1 = 1;
 }
 
 <div class="main-panel">
@@ -223,19 +225,19 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group label-floating">
                                                             <label class="control-label">Thuộc giáo xứ</label>
-                                                            <input type="text" class="form-control">
+                                                            <input type="text" name="parish" value="@ViewBag.StudentByID.parish" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group label-floating">
                                                             <label class="control-label">Giáo khu</label>
-                                                            <input type="text" class="form-control">
+                                                            <input type="text" name="diocese" value="@ViewBag.StudentByID.diocese" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group label-floating">
                                                             <label class="control-label">Giáo phận</label>
-                                                            <input type="text" class="form-control">
+                                                            <input type="text" name="province" value="@ViewBag.StudentByID.province" class="form-control">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -365,51 +367,19 @@
                                             <tfoot>
                                             </tfoot>
                                             <tbody>
+                                                @foreach (var item in ViewBag.ListClassByTeacherID)
+                                                { 
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>System Architect</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>0000000000</td>
-                                                    <td>a@abc.com</td>
+                                                    <td>@stt</td>
+                                                    <td>@item.USERLOGIN.holy_name</td>
+                                                    <td>@item.USERLOGIN.first_name @item.USERLOGIN.last_name</td>
+                                                    <td>@item.USERLOGIN.phone_number</td>
+                                                    <td>@item.USERLOGIN.email</td>
                                                     <td>Chức vụ 1</td>
-                                                    <td>Caesar Vance</td>
+                                                    <td>@item.note</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Accountant</td>
-                                                    <td>Tokyo</td>
-                                                    <td>1111111111</td>
-                                                    <td>ab@abc.com</td>
-                                                    <td>Chức vụ 2</td>
-                                                    <td>Cedric Kelly</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Integration Specialist</td>
-                                                    <td>New York</td>
-                                                    <td>2222222222</td>
-                                                    <td>abc@abc.com</td>
-                                                    <td>Chức vụ 3</td>
-                                                    <td>Brenden Wagner</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Sales Assistant</td>
-                                                    <td>San Francisco</td>
-                                                    <td>3333333333</td>
-                                                    <td>abcd@abc.com</td>
-                                                    <td>Chức vụ 1</td>
-                                                    <td>Bradley Greer</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td>Integration Specialist</td>
-                                                    <td>Tokyo</td>
-                                                    <td>4444444444</td>
-                                                    <td>abcde@abc.com</td>
-                                                    <td>Chức vụ 3</td>
-                                                    <td>Fiona Green</td>
-                                                </tr>
+                                                    stt++;
+                                                }
                                             </tbody>
                                         </table>
                                     </div>
@@ -438,36 +408,28 @@
                                             <tfoot>
                                             </tfoot>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>System Architect</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>Caesar Vance</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Accountant</td>
-                                                    <td>Tokyo</td>
-                                                    <td>Cedric Kelly</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Integration Specialist</td>
-                                                    <td>New York</td>
-                                                    <td>Brenden Wagner</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Sales Assistant</td>
-                                                    <td>San Francisco</td>
-                                                    <td>Bradley Greer</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td>Integration Specialist</td>
-                                                    <td>Tokyo</td>
-                                                    <td>Fiona Green</td>
-                                                </tr>
+                                                @if (ViewBag.ListStudentByClassID == null)
+                                                {
+                                                    <tr>
+                                                        <td>null</td>
+                                                        <td>null</td>
+                                                        <td>null</td>
+                                                        <td>null</td>
+                                                    </tr>
+                                                }
+                                                else
+                                                {
+                                                    foreach (var item in ViewBag.ListStudentByClassID)
+                                                    {
+                                                    <tr>
+                                                        <td>@stt1</td>
+                                                        <td>@item.holy_name</td>
+                                                        <td>@item.first_name @item.last_name</td>
+                                                        <td>@item.CLASS.note</td>
+                                                    </tr>
+                                                        stt1++;
+                                                    }
+                                                }
                                             </tbody>
                                         </table>
                                     </div>

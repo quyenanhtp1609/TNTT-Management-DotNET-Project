@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "EditStudent";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var stt = 1;
+    var space = " ";
 }
 
 <div class="main-panel">
@@ -229,19 +231,19 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group label-floating">
                                                             <label class="control-label">Thuộc giáo xứ</label>
-                                                            <input type="text" class="form-control">
+                                                            <input type="text" name="parish" value="@ViewBag.StudentByID.parish" value="" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group label-floating">
                                                             <label class="control-label">Giáo khu</label>
-                                                            <input type="text" class="form-control">
+                                                            <input type="text" name="diocese" value="@ViewBag.StudentByID.diocese" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group label-floating">
                                                             <label class="control-label">Giáo phận</label>
-                                                            <input type="text" class="form-control">
+                                                            <input type="text" name="province" value="@ViewBag.StudentByID.province" class="form-control">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -472,51 +474,55 @@
                                     <h4 class="card-title">
                                         Thông tin lớp học
                                     </h4>
-                                    <div class="col-md-12">
-                                        <div class="col-md-2 dropdown-label">
-                                            <p>Thuộc ngành:</p>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <select class="selectpicker" data-style="btn btn-primary btn-round"
-                                                    title="Chọn ngành">
-                                                <option disabled selected>Chọn ngành</option>
-                                                <option value="2">Ngành 1</option>
-                                                <option value="3">Ngành 2</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-2 dropdown-label">
-                                            <p>Thuộc khối:</p>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <select class="selectpicker" data-style="btn btn-primary btn-round"
-                                                    title="Chọn khối">
-                                                <option disabled selected>Chọn khối</option>
-                                                <option value="2">Khối 1</option>
-                                                <option value="3">Khối 2</option>
-                                            </select>
-                                        </div>
+                                    <form action="~/Student/EditStudentAttendClass" method="post">
+                                        <input type="hidden" name="id" value="@ViewBag.StudentByID.userid" />
+
+                                        @*<div class="col-md-12">
+                <div class="col-md-2 dropdown-label">
+                    <p>Thuộc ngành:</p>
+                </div>
+                <div class="col-md-2">
+                    <select class="selectpicker" data-style="btn btn-primary btn-round"
+                            title="Chọn ngành">
+                        <option disabled selected>Chọn ngành</option>
+                        <option value="2">Ngành 1</option>
+                        <option value="3">Ngành 2</option>
+                    </select>
+                </div>
+                <div class="col-md-2 dropdown-label">
+                    <p>Thuộc khối:</p>
+                </div>
+                <div class="col-md-2">
+                    <select class="selectpicker" data-style="btn btn-primary btn-round"
+                            title="Chọn khối">
+                        <option disabled selected>Chọn khối</option>
+                        <option value="2">Khối 1</option>
+                        <option value="3">Khối 2</option>
+                    </select>
+                </div>*@
+
                                         <div class="col-md-2 dropdown-label">
                                             <p>Học lớp:</p>
                                         </div>
                                         <div class="col-md-2">
-                                            <select class="selectpicker" data-style="btn btn-primary btn-round"
-                                                    title="Chọn lớp">
-                                                <option disabled selected>Chọn lớp</option>
-                                                <option value="2">Lớp 1</option>
-                                                <option value="3">Lớp 2</option>
-                                            </select>
+                                            @Html.DropDownList("class_id",
+                                          (IEnumerable<SelectListItem>)ViewBag.listClasses,
+                                          "Chọn lớp",new {@class= "selectpicker" })
                                         </div>
                                         <br>
-                                    </div>
-                                    <!-- Button -->
-                                    <div class="pull-right">
-                                        <button type="submit" class="btn btn-success btn-fill">
-                                            Lưu thông
-                                            tin
-                                        </button>
-                                        <div class="clearfix"></div>
-                                    </div>
+
+                                
+                                <!-- Button -->
+                                <div class="pull-right">
+                                    <button type="submit" class="btn btn-success">
+                                        Lưu thông
+                                        tin
+                                    </button>
+                                    <div class="clearfix"></div>
                                 </div>
+                                </form>
+                            </div>
+
                             </div>
                             <!-- Huynh trưởng -->
                             <div class="card">
@@ -544,51 +550,34 @@
                                             <tfoot>
                                             </tfoot>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>System Architect</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>0000000000</td>
-                                                    <td>a@abc.com</td>
-                                                    <td>Chức vụ 1</td>
-                                                    <td>Caesar Vance</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Accountant</td>
-                                                    <td>Tokyo</td>
-                                                    <td>1111111111</td>
-                                                    <td>ab@abc.com</td>
-                                                    <td>Chức vụ 2</td>
-                                                    <td>Cedric Kelly</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Integration Specialist</td>
-                                                    <td>New York</td>
-                                                    <td>2222222222</td>
-                                                    <td>abc@abc.com</td>
-                                                    <td>Chức vụ 3</td>
-                                                    <td>Brenden Wagner</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Sales Assistant</td>
-                                                    <td>San Francisco</td>
-                                                    <td>3333333333</td>
-                                                    <td>abcd@abc.com</td>
-                                                    <td>Chức vụ 1</td>
-                                                    <td>Bradley Greer</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td>Integration Specialist</td>
-                                                    <td>Tokyo</td>
-                                                    <td>4444444444</td>
-                                                    <td>abcde@abc.com</td>
-                                                    <td>Chức vụ 3</td>
-                                                    <td>Fiona Green</td>
-                                                </tr>
+                                                @if (ViewBag.findSelectedClassByID == null)
+                                                {
+                                                    <tr>
+                                                        <td>null</td>
+                                                        <td>null</td>
+                                                        <td>null</td>
+                                                        <td>null</td>
+                                                        <td>null</td>
+                                                        <td>null</td>
+                                                        <td>null</td>
+                                                    </tr>
+                                                }
+                                                else
+                                                {
+                                                    foreach (var item in ViewBag.findSelectedClassByID)
+                                                    {
+                                                        <tr>
+                                                            <td>@stt</td>
+                                                            <td>@item.USERLOGIN.holy_name</td>
+                                                            <td>@item.USERLOGIN.first_name @item.USERLOGIN.last_name</td>
+                                                            <td>@item.USERLOGIN.phone_number</td>
+                                                            <td>@item.USERLOGIN.email</td>
+                                                            <td>Chức vụ 1</td>
+                                                            <td>@item.note</td>
+                                                        </tr>
+                                                        stt++;
+                                                    }
+                                                }
                                             </tbody>
                                         </table>
                                     </div>

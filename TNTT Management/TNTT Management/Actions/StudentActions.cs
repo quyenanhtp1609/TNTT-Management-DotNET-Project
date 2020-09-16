@@ -10,26 +10,27 @@ namespace TNTT_Management.Actions
 {
     public class StudentActions
     {
-        public static List<USERLOGIN> listStudents()
-        {
-            using (var db = new ChurchModel())
-            {
-                return db.USERLOGINs.Where(m => m.isDeleted == false).ToList();
-            }
-        }
         //public static List<USERLOGIN> listStudents()
         //{
         //    using (var db = new ChurchModel())
         //    {
-        //        var ketqua = (from u in db.USER_PARISH_ROLE
-        //                      where u.USERLOGIN.isDeleted == false && u.roleid == 1
-        //                      select u.USERLOGIN).ToList(); ;
-        //        return ketqua;
+        //        return db.USERLOGINs.Where(m => m.isDeleted == false).ToList();
         //    }
         //}
+        public static List<USERLOGIN> listStudents()
+        {
+            using (var db = new ChurchModel())
+            {
+                var ketqua = (from u in db.USER_PARISH_ROLE
+                              where u.USERLOGIN.isDeleted == false && u.roleid == 1
+                              select u.USERLOGIN).Include(m => m.CLASS).Include(m => m.CLASS.LEARNING_GROUP).ToList(); 
+                return ketqua;
+            }
+        }
         public static void addStudent(string holy_name,string first_name,string last_name,string email
             ,string phone_number,string gender,string useradress,DateTime? birthday,DateTime? baptised_date,int? parish_id,
-            string father_name,string father_phone_number,string mother_name,string mother_phone_number)
+            string father_name,string father_phone_number,string mother_name,string mother_phone_number,
+            string parish,string diocese,string provice,int? class_id)
         {
             using (var db = new ChurchModel())
             {
@@ -54,13 +55,16 @@ namespace TNTT_Management.Actions
                     mother_phone_number = mother_phone_number,
                     isDeleted = false,
                     username = last_name + count_user.ToString(),
-                    userpassword = last_name + count_user.ToString() + "@123"
+                    userpassword = last_name + count_user.ToString() + "@123",
+                    parish = parish,
+                    diocese = diocese,
+                    province = provice,
+                    class_id = class_id
                 };
                 db.USERLOGINs.Add(new_user);
                 db.SaveChanges();
                 Thread.Sleep(200);
-                if (parish_id != null)
-                {
+            
                     db.USER_PARISH_ROLE.Add(new USER_PARISH_ROLE
                     {
                         USER_PARISH_ROLE_ID = count_user_parish + 1,
@@ -71,7 +75,7 @@ namespace TNTT_Management.Actions
                         isDeleted = false
                     });
                     db.SaveChanges();
-                }
+           
                 db.Dispose();
             }
         }
@@ -85,9 +89,28 @@ namespace TNTT_Management.Actions
             }
         }
 
+        public static List<USERLOGIN> findListStudentByClassID(int id)
+        {
+            using (var db = new ChurchModel())
+            {
+                var classbyteacherid = db.CLASSes.Where(m => m.form_teacher_id == id).FirstOrDefault();
+                if (classbyteacherid == null)
+                {
+                    return null;
+                }
+
+                var ketqua = (from u in db.USER_PARISH_ROLE
+                              where u.USERLOGIN.isDeleted == false && u.roleid == 1
+                              select u.USERLOGIN).Include(m => m.CLASS).Include(m => m.CLASS.LEARNING_GROUP).Where(m => m.class_id == classbyteacherid.class_id && m.isDeleted == false).ToList();
+
+                return ketqua;
+            }
+        }
+
+
         public static void editStudentinfo(int id,string holy_name,string first_name,string last_name,
             string email,string phone_number,string gender,string useradress,DateTime? birthday,
-            DateTime? baptised_date,int? parish_id)
+            DateTime? baptised_date,int? parish_id, string parish, string diocese, string provice)
         {
             using (var db = new ChurchModel())
             {
@@ -103,25 +126,30 @@ namespace TNTT_Management.Actions
                 userbyid.useradress = useradress;
                 userbyid.birthday = birthday;
                 userbyid.baptised_date =baptised_date;
+                userbyid.parish = parish;
+                userbyid.diocese = diocese;
+                userbyid.province = provice;
                 db.Entry(userbyid).State = EntityState.Modified;
 
                 var user_parish_role = db.USER_PARISH_ROLE.Where(m => m.userid == id && m.roleid == 1).FirstOrDefault();
-                if (user_parish_role != null)
+                if (parish_id != null)
                 {
-                    user_parish_role.parishid = parish_id;
-                    db.Entry(user_parish_role).State = EntityState.Modified;
-                }
-                else
-                {
-                    db.USER_PARISH_ROLE.Add(new USER_PARISH_ROLE
+                    if (user_parish_role != null)
                     {
-                        USER_PARISH_ROLE_ID = count_user_parish + 1,
-                        roleid = 1,
-                        userid = userbyid.userid,
-                        parishid = parish_id
-                     ,
-                        isDeleted = false
-                    });
+                        user_parish_role.parishid = parish_id;
+                        db.Entry(user_parish_role).State = EntityState.Modified;
+                    }
+                    else
+                    {
+                        db.USER_PARISH_ROLE.Add(new USER_PARISH_ROLE
+                        {
+                            USER_PARISH_ROLE_ID = count_user_parish + 1,
+                            roleid = 1,
+                            userid = userbyid.userid,
+                            parishid = parish_id,
+                            isDeleted = false
+                        });
+                    }
                 }
                 db.SaveChanges();
                 db.Dispose();
@@ -162,6 +190,23 @@ namespace TNTT_Management.Actions
                 db.Dispose();
             }
         }
+
+        public static void editStudentAttendClass(int id,int? class_id)
+        {
+            using (var db = new ChurchModel())
+            {
+                int count_user_parish = db.USER_PARISH_ROLE.Count();
+
+                var userbyid = db.USERLOGINs.Where(m => m.userid == id && m.isDeleted == false).FirstOrDefault();
+                userbyid.class_id = class_id;
+                db.Entry(userbyid).State = EntityState.Modified;
+                db.SaveChanges();
+                db.Dispose();
+            }
+        }
+
+
+
         public static void deleted_student(int id)
         {
             using (var db = new ChurchModel())

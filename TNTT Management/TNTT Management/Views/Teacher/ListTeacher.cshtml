@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "ListTeacher";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var stt = 1;
 }
 
 <div class="main-panel">
@@ -62,7 +63,7 @@
                                             <th>Họ và tên</th>
                                             <th>Số điện thoại</th>
                                             <th>Ngành</th>
-                                            <th>Khối</th>
+                                            @*<th>Khối</th>*@
                                             <th>Lớp</th>
                                             <th>Chức danh</th>
                                             <th class="disabled-sorting"></th>
@@ -76,7 +77,7 @@
                                             <th class="table-hidden"></th>
                                             <th class="table-hidden"></th>
                                             <th>Ngành</th>
-                                            <th>Khối</th>
+                                            @*<th>Khối</th>*@
                                             <th>Lớp</th>
                                             <th>Chức danh</th>
                                             <th class="disabled-sorting table-hidden"></th>
@@ -85,61 +86,72 @@
                                     <tbody>
                                         @foreach (var item in ViewBag.ListTeacher)
                                         {
-                                            <tr>
-                                                <td>1</td>
-                                                <td>@item.holy_name</td>
-                                                <td><span>@item.first_name</span><span> </span><span>@item.last_name</span></td>
-                                                <td>@item.phone_number</td>
-                                                <td>Ngành 1</td>
-                                                <td>Khối 1</td>
-                                                <td>Lớp 1</td>
-                                                <td>Chức danh 1</td>
-                                                <td class="td-actions">
-                                                    <button type="button" rel="tooltip"
-                                                            class="btn btn-success btn-round">
-                                                        <a href="/Teacher/EditTeacher/@item.userid">
-                                                            <i class="material-icons">edit</i>
-                                                        </a>
-                                                    </button>
-                                      
-                                                        <button type="button" rel="tooltip"
-                                                                class="btn btn-danger btn-round" onclick="remove(@item.userid)">
-                                                            <!-- Link on demo.js: warning-message-and-confirmation-6 -->
-                                                            <i class="material-icons">close</i>
-                                                        </button>
-                                         
-                                                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-                                                    <script type="text/javascript">
-                                                        function remove(id) {
-                                                            swal({
-                                                                title: "Xác nhận xoá?",
-                                                                text: "Nhấn OK nếu bạn muốn xoá, nhấn Cancel để hủy!",
-                                                                icon: "warning",
-                                                                cancelButtonClass: 'btn btn-danger',
-                                                                buttons: true,
-                                                                dangerMode: true,
-                                                            })
-                                                                .then((willDelete) => {
-                                                                    if (willDelete) {
-                                                                        removeitem(id)
-                                                                    }
+                                        <tr>
+                                            <td>@stt</td>
+                                            <td>@item.holy_name</td>
+                                            <td><span>@item.first_name</span><span> </span><span>@item.last_name</span></td>
+                                            <td>@item.phone_number</td>
+                                            @if (item.class_id == null)
+                                            {
+                                                <td>null</td>
+                                                <td>null</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@item.CLASS.LEARNING_GROUP.group_name</td>
+                                                <td>@item.CLASS.class_name</td>
+                                            }
 
-                                                                });
+                                          
 
-                                                        }
+                                            <td>Chức danh 1</td>
+                                            <td class="td-actions">
+                                                <button type="button" rel="tooltip"
+                                                        class="btn btn-success btn-round">
+                                                    <a href="/Teacher/EditTeacher/@item.userid">
+                                                        <i class="material-icons">edit</i>
+                                                    </a>
+                                                </button>
 
-                                                        function removeitem(id) {
-                                                            $.ajax({
-                                                                url: '/Teacher/DeletedTeacher',
-                                                                data: { id: id }
-                                                            }).done(function () {
-                                                                location.reload();
+                                                <button type="button" rel="tooltip"
+                                                        class="btn btn-danger btn-round" onclick="remove(@item.userid)">
+                                                    <!-- Link on demo.js: warning-message-and-confirmation-6 -->
+                                                    <i class="material-icons">close</i>
+                                                </button>
+
+                                                <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                                                <script type="text/javascript">
+                                                    function remove(id) {
+                                                        swal({
+                                                            title: "Xác nhận xoá?",
+                                                            text: "Nhấn OK nếu bạn muốn xoá, nhấn Cancel để hủy!",
+                                                            icon: "warning",
+                                                            cancelButtonClass: 'btn btn-danger',
+                                                            buttons: true,
+                                                            dangerMode: true,
+                                                        })
+                                                            .then((willDelete) => {
+                                                                if (willDelete) {
+                                                                    removeitem(id)
+                                                                }
+
                                                             });
-                                                        }
-                                                    </script>
-                   
-                                                </td>
-                                            </tr>
+
+                                                    }
+
+                                                    function removeitem(id) {
+                                                        $.ajax({
+                                                            url: '/Teacher/DeletedTeacher',
+                                                            data: { id: id }
+                                                        }).done(function () {
+                                                            location.reload();
+                                                        });
+                                                    }
+                                                </script>
+
+                                            </td>
+                                        </tr>
+                                            stt++;
                                         }
                                     </tbody>
 

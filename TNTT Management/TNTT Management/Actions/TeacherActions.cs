@@ -10,17 +10,27 @@ namespace TNTT_Management.Actions
 {
     public class TeacherActions
     {
+        //public static List<USERLOGIN> listTeachers()
+        //{
+        //    using (var db = new ChurchModel())
+        //    {
+        //        return db.USERLOGINs.Where(m => m.isDeleted == false).ToList();
+        //    }
+        //}
         public static List<USERLOGIN> listTeachers()
         {
             using (var db = new ChurchModel())
             {
-                return db.USERLOGINs.Where(m => m.isDeleted == false).ToList();
+                var ketqua = (from u in db.USER_PARISH_ROLE
+                              where u.USERLOGIN.isDeleted == false && u.roleid == 2
+                              select u.USERLOGIN).Include(m => m.CLASSes).Include(m => m.CLASS.LEARNING_GROUP).ToList();
+                return ketqua;
             }
         }
-
         public static void addTeacher(string holy_name, string first_name, string last_name, string email
          , string phone_number, string gender, string useradress, DateTime? birthday
-            , DateTime? baptised_date, int? parish_id)
+            , DateTime? baptised_date, int? parish_id
+            , string parish, string diocese, string provice)
         {
             using (var db = new ChurchModel())
             {
@@ -42,13 +52,16 @@ namespace TNTT_Management.Actions
                     baptised_date = baptised_date,
                     isDeleted = false,
                     username = last_name + count_user.ToString(),
-                    userpassword = last_name + count_user.ToString() + "@123"
+                    userpassword = last_name + count_user.ToString() + "@123",
+                    parish = parish,
+                    diocese = diocese,
+                    province = provice
                 };
                 db.USERLOGINs.Add(new_user);
                 db.SaveChanges();
                 Thread.Sleep(200);
-                if (parish_id != null)
-                {
+                //if (parish_id != null)
+                //{
                     db.USER_PARISH_ROLE.Add(new USER_PARISH_ROLE
                     {
                         USER_PARISH_ROLE_ID = count_user_parish + 1,
@@ -59,7 +72,7 @@ namespace TNTT_Management.Actions
                         isDeleted = false
                     });
                     db.SaveChanges();
-                }
+                //}
                 db.Dispose();
             }
         }
@@ -74,7 +87,7 @@ namespace TNTT_Management.Actions
 
         public static void editTeacherInfo(int id, string holy_name, string first_name, string last_name,
          string email, string phone_number, string gender, string useradress, DateTime? birthday,
-         DateTime? baptised_date, int? parish_id)
+         DateTime? baptised_date, int? parish_id, string parish, string diocese, string provice)
         {
             using (var db = new ChurchModel())
             {
@@ -90,6 +103,9 @@ namespace TNTT_Management.Actions
                 userbyid.useradress = useradress;
                 userbyid.birthday = birthday;
                 userbyid.baptised_date = baptised_date;
+                userbyid.parish = parish;
+                userbyid.diocese = diocese;
+                userbyid.province = provice;
                 db.Entry(userbyid).State = EntityState.Modified;
 
                 var user_parish_role = db.USER_PARISH_ROLE.Where(m => m.userid == id && m.roleid == 2).FirstOrDefault();
@@ -114,6 +130,7 @@ namespace TNTT_Management.Actions
                 db.Dispose();
             }
         }
+        
 
         public static void deleted_teacher(int id)
         {
